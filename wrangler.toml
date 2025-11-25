@@ -1,0 +1,26 @@
+name = "cloudflare-worker-s3-index"
+main = "src/index.ts"
+compatibility_date = "2024-11-25"
+compatibility_flags = ["nodejs_compat_v2"]
+
+# R2 bucket bindings for destination
+[[r2_buckets]]
+binding = "DEST_BUCKET"
+bucket_name = "pytorch"
+
+[[r2_buckets]]
+binding = "DEST_BUCKET_META_CDN"
+bucket_name = "pytorch-test"
+
+# Cron trigger - runs every hour
+[triggers]
+crons = ["0 * * * *"]
+
+# Environment variables (non-secret)
+[vars]
+SOURCE_S3_BUCKET = "pytorch"
+SOURCE_S3_REGION = "us-east-1"
+
+# Secrets (set via: wrangler secret put SECRET_NAME)
+# S3_ACCESS_KEY_ID - AWS access key ID (optional if using IAM)
+# S3_SECRET_ACCESS_KEY - AWS secret access key (optional if using IAM)

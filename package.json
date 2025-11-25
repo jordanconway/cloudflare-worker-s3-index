@@ -1,0 +1,35 @@
+{
+  "name": "cloudflare-worker-s3-index",
+  "version": "1.0.0",
+  "description": "Cloudflare Worker to generate S3 HTML indices for PyTorch packages",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "test": "vitest",
+    "test:watch": "vitest --watch",
+    "test:coverage": "vitest --coverage"
+  },
+  "keywords": [
+    "cloudflare",
+    "worker",
+    "s3",
+    "pytorch",
+    "pep503"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.668.0",
+    "@aws-sdk/credential-providers": "^3.668.0",
+    "semver": "^7.6.3"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "^0.10.10",
+    "@cloudflare/workers-types": "^4.20241127.0",
+    "@types/semver": "^7.7.1",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.8",
+    "wrangler": "^3.99.0"
+  }
+}
